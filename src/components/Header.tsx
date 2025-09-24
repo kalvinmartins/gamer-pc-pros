@@ -54,7 +54,13 @@ const Header = () => {
           </nav>
 
           {/* CTA Button Desktop */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-3">
+            <Button 
+              variant="outline"
+              asChild
+            >
+              <a href="/auth">Área Admin</a>
+            </Button>
             <Button 
               variant="hero" 
               onClick={() => scrollToSection('contact')}
@@ -104,6 +110,13 @@ const Header = () => {
               >
                 Contato
               </button>
+              <Button 
+                variant="outline"
+                className="mt-2 justify-start"
+                asChild
+              >
+                <a href="/auth">Área Admin</a>
+              </Button>
               <Button 
                 variant="hero" 
                 className="mt-2"

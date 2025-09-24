@@ -14,7 +14,175 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      appointments: {
+        Row: {
+          client_id: string
+          created_at: string
+          created_by: string
+          description: string | null
+          id: string
+          scheduled_date: string
+          scheduled_time: string
+          service_type: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          client_id: string
+          created_at?: string
+          created_by: string
+          description?: string | null
+          id?: string
+          scheduled_date: string
+          scheduled_time: string
+          service_type: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          client_id?: string
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          id?: string
+          scheduled_date?: string
+          scheduled_time?: string
+          service_type?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "appointments_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      clients: {
+        Row: {
+          address: string | null
+          created_at: string
+          email: string | null
+          id: string
+          name: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          created_at?: string
+          email?: string | null
+          id?: string
+          name?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      equipment_entries: {
+        Row: {
+          brand: string | null
+          client_id: string
+          created_at: string
+          created_by: string
+          entry_date: string
+          equipment_type: string
+          exit_date: string | null
+          id: string
+          model: string | null
+          notes: string | null
+          problem_description: string | null
+          serial_number: string | null
+          service_cost: number | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          brand?: string | null
+          client_id: string
+          created_at?: string
+          created_by: string
+          entry_date?: string
+          equipment_type: string
+          exit_date?: string | null
+          id?: string
+          model?: string | null
+          notes?: string | null
+          problem_description?: string | null
+          serial_number?: string | null
+          service_cost?: number | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          brand?: string | null
+          client_id?: string
+          created_at?: string
+          created_by?: string
+          entry_date?: string
+          equipment_type?: string
+          exit_date?: string | null
+          id?: string
+          model?: string | null
+          notes?: string | null
+          problem_description?: string | null
+          serial_number?: string | null
+          service_cost?: number | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "equipment_entries_client_id_fkey"
+            columns: ["client_id"]
+            isOneToOne: false
+            referencedRelation: "clients"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          name: string
+          role: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          role?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          role?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
